@@ -22,8 +22,8 @@ import javax.servlet.http.HttpSession;
  * 描述：     管理员
  */
 @Controller
-@RequestMapping("/manager/user")
-public class UserManagerController {
+@RequestMapping("/manage/user")
+public class UserManageController {
     @Autowired
     private IUserService iUserService;
 

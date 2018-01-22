@@ -2,7 +2,7 @@
 <html>
 
 <body>
-<h2>Hello World 234666飞646!</h2>
+<h2>tomcat1</h2>
 
 
 springmvc上传文件

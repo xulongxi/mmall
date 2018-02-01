@@ -61,6 +61,16 @@
         from mmall_order
         ORDER BY create_time desc
     </select>
+    <select id="selectOrderStatusByCreateTime" resultType="com.mmall.pojo.Order">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM mmall_order
+        WHERE status = #{status}
+        <![CDATA[
+        AND create_time<=#{date}
+        ]]>
+        ORDER BY create_time DESC
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from mmall_order
@@ -204,7 +214,7 @@
             <if test="createTime != null">
                 create_time = #{createTime,jdbcType=TIMESTAMP},
             </if>
-            <if test="updateTime != null" >
+            <if test="updateTime != null">
                 update_time = now(),
             </if>
         </set>
@@ -227,4 +237,12 @@
       update_time =  now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+    <update id="closeOrderByOrderId" parameterType="int" >
+        UPDATE mmall_order
+        SET status = 0
+        where id = #{id}
+    </update>
+
+
 </mapper>

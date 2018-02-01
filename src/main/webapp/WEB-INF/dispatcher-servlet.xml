@@ -48,4 +48,14 @@
     <bean id="stringToBooleanConverter"
           class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
     </bean>
+
+<mvc:interceptors>
+    <!--定义在这里的，所有的都会拦截-->
+    <mvc:interceptor>
+        <mvc:mapping path="/manage/**"/>
+        <!--<mvc:exclude-mapping path="/manage/user/login.do"/>-->
+        <bean class="com.mmall.controller.common.interceptor.AuthorityInterceptor"></bean>
+    </mvc:interceptor>
+</mvc:interceptors>
+
 </beans>

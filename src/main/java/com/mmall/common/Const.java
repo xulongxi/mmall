@@ -161,4 +161,8 @@ public class Const {
 
     public static final String USERNAME = "username";
     public static final String EMAIL = "email";
+
+    public interface  REDIS_LOCK{
+        String CLOSE_ORDER_TASK_LOCK = "CLOSE_ORDER_TASK_LOCK";//关闭订单的分布式锁
+    }
 }
